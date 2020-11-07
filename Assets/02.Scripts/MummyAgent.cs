@@ -18,6 +18,11 @@ public class MummyAgent : Agent
     public float turnSpeed = 200.0f;
     public Text rewardText;
 
+    private Renderer floorRd;
+    private Material originMt;
+    public Material goodMt;
+    public Material badMt;
+
     //에이젼트 초기화
     public override void Initialize()
     {
@@ -25,6 +30,8 @@ public class MummyAgent : Agent
         tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         stageManager = tr.parent.Find("StageManager").GetComponent<StageManager>();
+        floorRd = tr.parent.Find("Floor").GetComponent<MeshRenderer>();
+        originMt = floorRd.material;
     }
 
     //학습을 시작할때마다 호출되는 메소드(스테이지-환경을 초기화)
