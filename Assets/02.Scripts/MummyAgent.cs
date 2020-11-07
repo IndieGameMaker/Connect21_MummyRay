@@ -57,5 +57,15 @@ public class MummyAgent : Agent
         {
             actionsOut[0] = 2.0f;
         }
+
+        //좌우 회전
+        if (Input.GetKey(KeyCode.A))
+        {
+            actionsOut[1] = 1.0f;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            actionsOut[1] = 2.0f;
+        }
     }
 }
