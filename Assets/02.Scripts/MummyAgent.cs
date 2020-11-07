@@ -60,7 +60,7 @@ public class MummyAgent : Agent
         }
 
         tr.Rotate(rot * Time.fixedDeltaTime * turnSpeed);
-        rb.AddForce(dir * moveSpeed, ForceMode.VelocityChange);
+        rb.AddRelativeForce(dir * moveSpeed, ForceMode.VelocityChange);
 
         AddReward(-1/(float)MaxStep);
     }
