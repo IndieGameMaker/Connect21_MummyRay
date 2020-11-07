@@ -37,7 +37,16 @@ public class MummyAgent : Agent
     //학습을 시작할때마다 호출되는 메소드(스테이지-환경을 초기화)
     public override void OnEpisodeBegin()
     {
-
+        //스테이지 초기화
+        stageManager.InitStage();
+        //물리력을 모두 초기화
+        rb.velocity = rb.angularVelocity = Vector3.zero;
+        //에이젼트의 위치를 불규칙하게 변경
+        tr.localPosition = new Vector3(Random.Range(-24.0f, 24.0f)
+                                        , 0.05f
+                                        , Random.Range(-24.0f, 24.0f));
+        tr.localRotation = Quaternion.Euler(Vector3.up * Random.Range(0, 360));
+        //Quaternion.Euler(0, Random.Range(0, 360), 0);
     }
 
     //주변환경을 관측
