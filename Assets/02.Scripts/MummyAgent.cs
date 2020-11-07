@@ -11,9 +11,10 @@ public class MummyAgent : Agent
 {
     private Transform tr;
     private Rigidbody rb;
+    private StageManager stageManager;
+
     public float moveSpeed = 1.5f;
     public float turnSpeed = 200.0f;
-    public StageManager stageManager;
 
     //에이젼트 초기화
     public override void Initialize()
@@ -44,6 +45,17 @@ public class MummyAgent : Agent
     //개발자가 테스트용, 모방학습(Immetation Learing)
     public override void Heuristic(float[] actionsOut)
     {
+        actionsOut[0] = 0.0f;   //Non-key , W, S (0, 1, 2)
+        actionsOut[1] = 0.0f;   //Non-key , A, D (0, 1, 2)
 
+        //전진/후진
+        if (Input.GetKey(KeyCode.W))
+        {
+            actionsOut[0] = 1.0f;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            actionsOut[0] = 2.0f;
+        }
     }
 }
