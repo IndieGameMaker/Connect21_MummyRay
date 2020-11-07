@@ -65,7 +65,7 @@ public class MummyAgent : Agent
         rb.AddRelativeForce(dir * moveSpeed, ForceMode.VelocityChange);
 
         AddReward(-1/(float)MaxStep);
-        rewardText.text = GetCumulativeReward().ToString("###.00");
+        rewardText.text = GetCumulativeReward().ToString("##0.0000");
     }
 
     //개발자가 테스트용, 모방학습(Immetation Learing)
