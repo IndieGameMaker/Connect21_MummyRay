@@ -39,7 +39,7 @@ public class MummyAgent : Agent
     //정책에 따른 행동
     public override void OnActionReceived(float[] vectorAction)
     {
-
+        Debug.Log($"[0]={vectorAction[0]}, [1]={vectorAction[1]}");
     }
 
     //개발자가 테스트용, 모방학습(Immetation Learing)
