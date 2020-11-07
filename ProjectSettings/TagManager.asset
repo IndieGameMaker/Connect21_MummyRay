@@ -7,6 +7,12 @@ TagManager:
   - GOOD_ITEM
   - BAD_ITEM
   - WALL
+  - RED
+  - GREEN
+  - BLUE
+  - HINT_RED
+  - HINT_GREEN
+  - HINT_BLUE
   layers:
   - Default
   - TransparentFX
