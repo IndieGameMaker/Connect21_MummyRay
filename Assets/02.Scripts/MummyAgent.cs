@@ -53,7 +53,9 @@ public class MummyAgent : Agent
         //전진/후진처리 vectorAction[0]
         switch ((int)vectorAction[0])
         {
-            
+            case 0: break;
+            case 1: dir =  Vector3.forward; break;
+            case 2: dir = -Vector3.forward; break;
         }
 
     }
