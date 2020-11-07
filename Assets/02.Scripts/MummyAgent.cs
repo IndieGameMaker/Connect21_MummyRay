@@ -19,6 +19,7 @@ public class MummyAgent : Agent
     //에이젼트 초기화
     public override void Initialize()
     {
+        MaxStep = 5000;
         tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         stageManager = tr.parent.Find("StageManager").GetComponent<StageManager>();
@@ -58,6 +59,10 @@ public class MummyAgent : Agent
             case 2: dir = -Vector3.forward; break;
         }
 
+        tr.Rotate(rot * Time.fixedDeltaTime * turnSpeed);
+        rb.AddForce(dir * moveSpeed, ForceMode.VelocityChange);
+
+        AddReward(-1/(float)MaxStep);
     }
 
     //개발자가 테스트용, 모방학습(Immetation Learing)
