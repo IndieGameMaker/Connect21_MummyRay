@@ -91,4 +91,28 @@ public class MummyAgent : Agent
             actionsOut[1] = 2.0f;
         }
     }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.CompareTag("GOOD_ITEM"))
+        {
+            Destroy(coll.gameObject);
+            rb.velocity = rb.angularVelocity = Vector3.zero;
+            AddReward(+1.0f);
+        }
+
+        if (coll.gameObject.CompareTag("BAD_ITEM"))
+        {
+            Destroy(coll.gameObject);
+            rb.velocity = rb.angularVelocity = Vector3.zero;
+            AddReward(-1.0f);
+            EndEpisode();
+        }
+
+        if (coll.gameObject.CompareTag("WALL"))
+        {
+            //rb.velocity = rb.angularVelocity = Vector3.zero;
+            AddReward(-0.1f);
+        }
+    }
 }
