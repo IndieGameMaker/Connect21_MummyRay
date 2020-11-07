@@ -85,7 +85,52 @@ public class MummyIM : Agent
         }
     }
 
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.CompareTag("RED"))
+        {
+            if (stageManager.hintColor == StageManagerIM.HINT_COLOR.RED)
+            {
+                SetReward(+1.0f);
+            }
+            else
+            {
+                SetReward(-1.0f);
+            }
+            EndEpisode();
+        }
 
+        if (coll.gameObject.CompareTag("GREEN"))
+        {
+            if (stageManager.hintColor == StageManagerIM.HINT_COLOR.GREEN)
+            {
+                SetReward(+1.0f);
+            }
+            else
+            {
+                SetReward(-1.0f);
+            }
+            EndEpisode();
+        }  
+
+        if (coll.gameObject.CompareTag("BLUE"))
+        {
+            if (stageManager.hintColor == StageManagerIM.HINT_COLOR.BLUE)
+            {
+                SetReward(+1.0f);
+            }
+            else
+            {
+                SetReward(-1.0f);
+            }
+            EndEpisode();
+        }
+
+        if (coll.gameObject.CompareTag("WALL"))
+        {
+            SetReward(-1/(float)MaxStep);
+        }              
+    }
 
 
 }
