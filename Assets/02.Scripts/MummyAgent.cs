@@ -18,7 +18,9 @@ public class MummyAgent : Agent
     //에이젼트 초기화
     public override void Initialize()
     {
-
+        tr = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
+        stageManager = tr.parent.Find("StageManager").GetComponent<StageManager>();
     }
 
     //학습을 시작할때마다 호출되는 메소드(스테이지-환경을 초기화)
