@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GOOD_ITEM
+  - BAD_ITEM
+  - WALL
   layers:
   - Default
   - TransparentFX
