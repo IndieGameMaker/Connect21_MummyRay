@@ -22,7 +22,8 @@ public class StageManagerIM : MonoBehaviour
 
     void Start()
     {
-        pos = transform.position + new Vector3(0, 0.55f, 0);        
+        pos = transform.position + new Vector3(0, 0.55f, 0);
+        InitStage();        
     }
 
     public void InitStage()
