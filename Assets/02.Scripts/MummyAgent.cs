@@ -36,10 +36,26 @@ public class MummyAgent : Agent
 
     }
 
-    //정책에 따른 행동
+    //정책에 따른 행동(전달받은 명령에 따라서 행동)
     public override void OnActionReceived(float[] vectorAction)
     {
-        Debug.Log($"[0]={vectorAction[0]}, [1]={vectorAction[1]}");
+        //Debug.Log($"[0]={vectorAction[0]}, [1]={vectorAction[1]}");
+        Vector3 dir = Vector3.zero;
+        Vector3 rot = Vector3.zero;
+
+        //좌우회전 처리 vectorAction[1]
+        switch ((int)vectorAction[1])
+        {
+            case 0: break;
+            case 1: rot = Vector3.up * -1.0f; break;
+            case 2: rot = Vector3.up * +1.0f; break;
+        }
+        //전진/후진처리 vectorAction[0]
+        switch ((int)vectorAction[0])
+        {
+            
+        }
+
     }
 
     //개발자가 테스트용, 모방학습(Immetation Learing)
