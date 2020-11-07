@@ -29,7 +29,7 @@ public class StageManager : MonoBehaviour
                                      , 0.05f
                                      , Random.Range(-24.0f, 24.0f) );
             Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
-            goodList.Add(Instantiate<GameObject>(goodItem, pos, rot, this.transform));
+            goodList.Add(Instantiate<GameObject>(goodItem, transform.position + pos, rot, this.transform));
         }
 
         //BadItem 생성
@@ -39,7 +39,7 @@ public class StageManager : MonoBehaviour
                                      , 0.05f
                                      , Random.Range(-24.0f, 24.0f) );
             Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
-            badList.Add(Instantiate<GameObject>(badItem, pos, rot, this.transform));
+            badList.Add(Instantiate<GameObject>(badItem, transform.position + pos, rot, this.transform));
         }        
     }
 }
