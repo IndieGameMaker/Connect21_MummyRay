@@ -109,6 +109,7 @@ public class MummyAgent : Agent
             Destroy(coll.gameObject);
             rb.velocity = rb.angularVelocity = Vector3.zero;
             AddReward(+1.0f);
+            StartCoroutine(ChangeMaterial(goodMt));
         }
 
         if (coll.gameObject.CompareTag("BAD_ITEM"))
@@ -117,6 +118,7 @@ public class MummyAgent : Agent
             rb.velocity = rb.angularVelocity = Vector3.zero;
             AddReward(-1.0f);
             EndEpisode();
+            StartCoroutine(ChangeMaterial(badMt));
         }
 
         if (coll.gameObject.CompareTag("WALL"))
