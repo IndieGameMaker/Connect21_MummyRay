@@ -619,6 +619,7 @@ MonoBehaviour:
   MaxStep: 0
   moveSpeed: 1.5
   turnSpeed: 200
+  rewardText: {fileID: 1606773292}
 --- !u!114 &556313614
 MonoBehaviour:
   m_ObjectHideFlags: 0
