@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 
@@ -15,6 +16,7 @@ public class MummyAgent : Agent
 
     public float moveSpeed = 1.5f;
     public float turnSpeed = 200.0f;
+    public Text rewardText;
 
     //에이젼트 초기화
     public override void Initialize()
@@ -63,6 +65,7 @@ public class MummyAgent : Agent
         rb.AddRelativeForce(dir * moveSpeed, ForceMode.VelocityChange);
 
         AddReward(-1/(float)MaxStep);
+        rewardText.text = GetCumulativeReward().ToString("###.00");
     }
 
     //개발자가 테스트용, 모방학습(Immetation Learing)
