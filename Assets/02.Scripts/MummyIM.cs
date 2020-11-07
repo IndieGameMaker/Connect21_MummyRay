@@ -22,7 +22,12 @@ public class MummyIM : Agent
 
     public override void OnEpisodeBegin()
     {
+        stageManager.InitStage();
+        //에이젼트의 초기위치값을 설정
+        tr.localPosition = new Vector3(Random.Range(-4.0f, 4.0f), 0.05f, -3.5f);
+        tr.localRotation = Quaternion.identity;
 
+        rb.velocity = rb.angularVelocity = Vector3.zero;
     }
 
     //정책에 따른 행동(전달받은 명령에 따라서 행동)
