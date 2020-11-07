@@ -125,4 +125,11 @@ public class MummyAgent : Agent
             AddReward(-0.1f);
         }
     }
+
+    IEnumerator ChangeMaterial(Material changeMt)
+    {
+        floorRd.material = changeMt;
+        yield return new WaitForSeconds(0.2f);
+        floorRd.material = originMt;
+    }
 }
