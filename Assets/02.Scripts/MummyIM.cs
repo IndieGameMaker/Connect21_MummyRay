@@ -13,11 +13,19 @@ public class MummyIM : Agent
     public float turnSpeed = 200.0f;
     public StageManagerIM stageManager;
 
+    private Renderer floorRd;
+    private Material originMt;
+    public Material goodMt;
+    public Material badMt;    
+
     public override void Initialize()
     {
         tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         MaxStep = 1000;
+
+        floorRd = tr.parent.Find("Floor").GetComponent<MeshRenderer>();
+        originMt = floorRd.material;        
     }
 
     public override void OnEpisodeBegin()
@@ -92,10 +100,12 @@ public class MummyIM : Agent
             if (stageManager.hintColor == StageManagerIM.HINT_COLOR.RED)
             {
                 SetReward(+1.0f);
+                StartCoroutine(ChangeMaterial(goodMt));
             }
             else
             {
                 SetReward(-1.0f);
+                StartCoroutine(ChangeMaterial(badMt));
             }
             EndEpisode();
         }
@@ -105,10 +115,12 @@ public class MummyIM : Agent
             if (stageManager.hintColor == StageManagerIM.HINT_COLOR.GREEN)
             {
                 SetReward(+1.0f);
+                StartCoroutine(ChangeMaterial(goodMt));
             }
             else
             {
                 SetReward(-1.0f);
+                StartCoroutine(ChangeMaterial(badMt));
             }
             EndEpisode();
         }  
@@ -118,10 +130,12 @@ public class MummyIM : Agent
             if (stageManager.hintColor == StageManagerIM.HINT_COLOR.BLUE)
             {
                 SetReward(+1.0f);
+                StartCoroutine(ChangeMaterial(goodMt));
             }
             else
             {
                 SetReward(-1.0f);
+                StartCoroutine(ChangeMaterial(badMt));
             }
             EndEpisode();
         }
@@ -129,8 +143,14 @@ public class MummyIM : Agent
         if (coll.gameObject.CompareTag("WALL"))
         {
             SetReward(-1/(float)MaxStep);
+            rb.velocity = rb.angularVelocity = Vector3.zero;
         }              
     }
 
-
+    IEnumerator ChangeMaterial(Material changeMt)
+    {
+        floorRd.material = changeMt;
+        yield return new WaitForSeconds(0.2f);
+        floorRd.material = originMt;
+    }
 }
