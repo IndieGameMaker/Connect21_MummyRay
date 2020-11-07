@@ -9,6 +9,12 @@ using Unity.MLAgents.Sensors;
 //행동에 따른 보상 (Reward)
 public class MummyAgent : Agent
 {
+    private Transform tr;
+    private Rigidbody rb;
+    public float moveSpeed = 1.5f;
+    public float turnSpeed = 200.0f;
+    public StageManager stageManager;
+
     //에이젼트 초기화
     public override void Initialize()
     {
@@ -36,6 +42,6 @@ public class MummyAgent : Agent
     //개발자가 테스트용, 모방학습(Immetation Learing)
     public override void Heuristic(float[] actionsOut)
     {
-        
+
     }
 }
